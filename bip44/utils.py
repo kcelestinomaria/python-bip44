@@ -3,21 +3,21 @@ from typing import Union
 from coincurve import PublicKey
 from Crypto.Hash import keccak
 
-__all__ = ("get_eth_addr", "to_checksum_addr")
+__all__ = ("get_algo_addr", "to_checksum_addr")
 
-
+# Hash Function - replace with sha256, or nacl
 def keccak_256(b: bytes) -> bytes:
     h = keccak.new(data=b, digest_bits=256)
     return h.digest()
 
-
-def to_checksum_addr(eth_addr: str) -> str:
+# convert algo account address to algo checksum address
+def to_checksum_addr(algo_addr: str) -> str:
     """
-    Convert eth address to eth checksum address.
+    Convert an ALGO account address to an ALGO checksum address.
 
     EIP 55: https://github.com/ethereum/EIPs/blob/master/EIPS/eip-55.md#implementation
     """
-    address = eth_addr.lower().replace("0x", "")
+    address = algo_addr.lower().replace("0x", "")
     addr_hash = keccak_256(address.encode()).hex()
 
     res = []
@@ -29,8 +29,8 @@ def to_checksum_addr(eth_addr: str) -> str:
 
     return "0x" + "".join(res)
 
-
-def get_eth_addr(pk: Union[str, bytes]) -> str:
+# get an ALGO account address from a public key
+def get_algo_addr(pk: Union[str, bytes]) -> str:
     """Get ETH address from a public key."""
     pk_bytes = bytes.fromhex(pk) if isinstance(pk, str) else pk
 
