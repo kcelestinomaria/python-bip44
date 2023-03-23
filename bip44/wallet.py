@@ -61,7 +61,7 @@ class Wallet:
         Derive secret and public key of account, following BIP44 standard like `m / purpose' / coin_type' / account' / change / address_index`.
 
         Args:
-            :param coin (Union[str, int]): e.g. BTC or ETH, respectively, 0 or 60 in index
+            :param coin (Union[str, int]): e.g. BTC, ALGO/ASAs or ETH, respectively, 0, 283 or 60 in index
             :param account (int, optional): Account index, each user should have one
             :param change (int, optional): 0 for receiving payments and 1 for receiving changes, see BIP44 for details
             :param address_index (int, optional): Starting from 0
