@@ -17,4 +17,7 @@ COIN_PATHS = {
     "DOGE": coin_path_by_index(3),
     "ETH": coin_path_by_index(60),
     "ETC": coin_path_by_index(61),
+    "ALGO": coin_path_by_index(283), 
+    # ALGO is no. 283, all Algorand ASAs are also retrievable through the same index as ALGO, though we'll have to directly query from user which ASA Token they want
+    "ASA": coin_path_by_index(283)
 }
