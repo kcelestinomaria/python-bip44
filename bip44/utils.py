@@ -11,6 +11,7 @@ def keccak_256(b: bytes) -> bytes:
     return h.digest()
 
 # convert algo account address to algo checksum address
+# no need for this, as ALGO accounts already have checksums added
 def to_checksum_addr(algo_addr: str) -> str:
     """
     Convert an ALGO account address to an ALGO checksum address.
@@ -30,6 +31,7 @@ def to_checksum_addr(algo_addr: str) -> str:
     return "0x" + "".join(res)
 
 # get an ALGO account address from a public key
+# No need for this, we will just use high-level Python func from SDK)
 def get_algo_addr(pk: Union[str, bytes]) -> str:
     """Get ETH address from a public key."""
     pk_bytes = bytes.fromhex(pk) if isinstance(pk, str) else pk
