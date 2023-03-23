@@ -33,7 +33,7 @@ def to_checksum_addr(algo_addr: str) -> str:
 # get an ALGO account address from a public key
 # No need for this, we will just use high-level Python func from SDK)
 def get_algo_addr(pk: Union[str, bytes]) -> str:
-    """Get ETH address from a public key."""
+    """Get ALGO address from a public key. pk - public key, sk - secret/private key"""
     pk_bytes = bytes.fromhex(pk) if isinstance(pk, str) else pk
 
     if len(pk_bytes) != 64:
